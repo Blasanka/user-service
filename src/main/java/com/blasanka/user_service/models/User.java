@@ -8,7 +8,7 @@ import javax.xml.bind.annotation.XmlRootElement;
 @XmlRootElement
 public class User {
 
-	private Long userId;
+	private long userId;
 	private String email;
 	private String username;
 	private String password;
@@ -20,7 +20,18 @@ public class User {
 	public User() {
 	}
 	
-	public User(Long userId, String email, String username, String password, Date createdAt, Date updatedAt, UserRole role) {
+	public User(long userId, String email, String username, String password, long roleId, Date createdAt, Date updatedAt) {
+		super();
+		this.userId = userId;
+		this.email = email;
+		this.username = username;
+		this.password = password;
+		this.roleId = roleId;
+		this.createdAt = createdAt;
+		this.updatedAt = updatedAt;
+	}
+	
+	public User(long userId, String email, String username, String password, Date createdAt, Date updatedAt, UserRole role) {
 		super();
 		this.userId = userId;
 		this.email = email;
@@ -31,20 +42,11 @@ public class User {
 		this.role = role;
 	}
 	
-	public User(Long userId, String email, String username, String password, long roleId) {
-		super();
-		this.userId = userId;
-		this.email = email;
-		this.username = username;
-		this.password = password;
-		this.roleId = roleId;
-	}
-
-	public Long getUserId() {
+	public long getUserId() {
 		return userId;
 	}
 
-	public void setUserId(Long userId) {
+	public void setUserId(long userId) {
 		this.userId = userId;
 	}
 
